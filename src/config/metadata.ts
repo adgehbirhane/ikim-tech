@@ -11,7 +11,7 @@ export function generateMetadata({
   title,
   description,
   path = '',
-  image = '/akim_logo.jpg',
+  image = 'https://ikim-tech.netlify.app/og-image.png',
 }: GenerateMetadataProps): Metadata {
   const siteUrl = 'https://ikim-tech.netlify.app';
   const fullUrl = `${siteUrl}${path}`;
@@ -29,7 +29,7 @@ export function generateMetadata({
           url: image,
           width: 1200,
           height: 630,
-          alt: title || 'IKIM Tech Co.',
+          alt: title || 'IKIM Tech Co. - Web Development & Digital Solutions',
         },
       ],
       locale: 'en_US',

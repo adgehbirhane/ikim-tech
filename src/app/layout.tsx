@@ -32,10 +32,10 @@ export const metadata: Metadata = {
     description: 'Your trusted partner for web development, mobile apps, and digital solutions.',
     images: [
       {
-        url: '/akim_logo.jpg',
+        url: 'https://ikim-tech.netlify.app/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'IKIM Tech Co.',
+        alt: 'IKIM Tech Co. - Web Development & Digital Solutions',
       },
     ],
   },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'IKIM Tech Co. | Web Development & Digital Solutions',
     description: 'Your trusted partner for web development, mobile apps, and digital solutions.',
-    images: ['/akim_logo.jpg'],
+    images: ['https://ikim-tech.netlify.app/og-image.png'],
     creator: '@ikimtech',
   },
   robots: {
@@ -79,6 +79,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/akim_logo.jpg" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#033D54" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image:alt" content="IKIM Tech Co. - Web Development & Digital Solutions" />
       </head>
       <body className={inter.className}>
         <div className="relative min-h-screen flex flex-col">
