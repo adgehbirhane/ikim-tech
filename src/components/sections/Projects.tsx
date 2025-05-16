@@ -7,41 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import Image from 'next/image';
-
-const projects = [
-  {
-    id: 1,
-    title: "Nawla Trading PLC",
-    description: "A modern e-commerce platform showcasing products with a clean, responsive design.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-    link: "https://www.nawlatrading.com",
-    technologies: ["React", "Node.js", "MongoDB"]
-  },
-  {
-    id: 2,
-    title: "Gojo Guest House",
-    description: "An elegant website highlighting services, room options, and amenities.",
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070&auto=format&fit=crop",
-    link: "https://www.gojoguesthouse.com",
-    technologies: ["Next.js", "Tailwind CSS", "Sanity CMS"]
-  },
-  {
-    id: 3,
-    title: "Brand Clothing",
-    description: "A fashion e-commerce platform bringing timeless fashion with a modern touch.",
-    image: "https://images.unsplash.com/photo-1617791160505-6f00504e3519?q=80&w=2070&auto=format&fit=crop",
-    link: "https://www.brandclothing.com",
-    technologies: ["Vue.js", "Express", "PostgreSQL"]
-  },
-  {
-    id: 4,
-    title: "Heiver Tech",
-    description: "A technology services platform recognized for outstanding innovations.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
-    link: "https://www.heivertech.com",
-    technologies: ["React", "GraphQL", "AWS"]
-  }
-];
+import { projects } from '@/data/projects';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },

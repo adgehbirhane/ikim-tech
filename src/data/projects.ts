@@ -1,167 +1,53 @@
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  technologies: string[];
+}
+
 export const projects = [
   {
-    id: "nawla-trading",
+    id: 1,
     title: "Nawla Trading PLC",
-    category: "web",
-    description: "This Nawla Trading website showcases products and services with a clean, responsive design.",
-    image: "/images/projects/nawla-trading.jpg",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    link: "#",
-    features: [
-      "Responsive Design",
-      "Product Catalog",
-      "Service Showcase",
-      "Contact Integration"
-    ]
+    description: "A modern e-commerce platform with a clean, user-friendly design and seamless shopping experience.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop",
+    link: "https://www.ikimtechco.com/",
   },
   {
-    id: "gojo-guest-house",
+    id: 2,
     title: "Gojo Guest House",
-    category: "web",
-    description: "This guesthouse website highlights services, room options, and amenities.",
-    image: "/images/projects/gojo-guest-house.jpg",
-    technologies: ["React", "Tailwind CSS", "Node.js"],
-    link: "#",
-    features: [
-      "Room Booking System",
-      "Amenities Showcase",
-      "Location Services",
-      "Contact Form"
-    ]
+    description: "A beautiful website showcasing the services and amenities of a luxury guest house.",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
+    link: "https://www.ikimtechco.com/",
   },
   {
-    id: "brand-clothing",
+    id: 3,
     title: "Brand Clothing",
-    category: "web",
-    description: "Brand Clothing brings you timeless fashion with a modern touch.",
-    image: "/images/projects/brand-clothing.jpg",
-    technologies: ["Next.js", "Tailwind CSS", "Stripe"],
-    link: "#",
-    features: [
-      "E-commerce Integration",
-      "Product Catalog",
-      "Shopping Cart",
-      "Payment Processing"
-    ]
+    description: "An elegant fashion e-commerce platform with advanced filtering and search capabilities.",
+    image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop",
+    link: "https://www.ikimtechco.com/",
   },
   {
-    id: "heiver-tech",
+    id: 4,
     title: "Heiver Tech",
-    category: "web",
-    description: "Provides various technology services and is globally recognized for its outstanding innovations, cutting-edge solutions, and commitment to excellence in the tech industry.",
-    image: "/images/projects/heiver-tech.jpg",
-    technologies: ["React", "Node.js", "MongoDB"],
-    link: "#",
-    features: [
-      "Service Showcase",
-      "Portfolio Display",
-      "Blog Integration",
-      "Contact System"
-    ]
+    description: "A modern technology services platform with a focus on user experience and performance.",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop",
+    link: "https://www.ikimtechco.com/",
   },
   {
-    id: "negariit-marketing",
-    title: "ነጋሪት Marketing Agency",
-    category: "web",
-    description: "Offers a wide range of digital services, striving to modernize the world by providing innovative and effective marketing solutions.",
-    image: "/images/projects/negariit-marketing.jpg",
-    technologies: ["Next.js", "Tailwind CSS", "Contentful"],
-    link: "#",
-    features: [
-      "Service Portfolio",
-      "Case Studies",
-      "Blog System",
-      "Contact Integration"
-    ]
+    id: 5,
+    title: "Brand Clothing",
+    description: "An elegant fashion e-commerce platform with advanced filtering and search capabilities.",
+    image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop",
+    link: "https://www.ikimtechco.com/",
   },
   {
-    id: "adape-leather",
-    title: "Adape Leather Design",
-    category: "web",
-    description: "Specializes in crafting a variety of high-quality leather products, delighting clients with beautiful and expertly handcrafted designs.",
-    image: "/images/projects/adape-leather.jpg",
-    technologies: ["React", "Tailwind CSS", "Shopify"],
-    link: "#",
-    features: [
-      "Product Showcase",
-      "E-commerce Integration",
-      "Custom Order System",
-      "Gallery Display"
-    ]
-  },
-  {
-    id: "shoeit",
-    title: "ShoeIT",
-    category: "mobile",
-    description: "This mobile app is dedicated to shoe sales, offering a clean, user-friendly design. It features easy navigation, comprehensive product details, and a visually appealing layout that enhances the shopping experience.",
-    image: "/images/projects/shoeit.jpg",
-    technologies: ["React Native", "Firebase", "Redux"],
-    link: "#",
-    features: [
-      "Product Catalog",
-      "Shopping Cart",
-      "User Authentication",
-      "Order Tracking"
-    ]
-  },
-  {
-    id: "habesha-crowd",
-    title: "Habesha Crowd",
-    category: "logo",
-    description: "A logo for a company that provides various services, showcasing versatility and professionalism.",
-    image: "/images/projects/habesha-crowd.jpg",
-    technologies: ["Adobe Illustrator", "Photoshop"],
-    link: "#",
-    features: [
-      "Brand Identity",
-      "Logo Design",
-      "Color Palette",
-      "Typography"
-    ]
-  },
-  {
-    id: "eromica",
-    title: "Eromica",
-    category: "logo",
-    description: "A logo for a woman that is represented by E= Ethiopia, Romi= roman (name of the woman), ca= comes from the last word Africa",
-    image: "/images/projects/eromica.jpg",
-    technologies: ["Adobe Illustrator", "Photoshop"],
-    link: "#",
-    features: [
-      "Personal Branding",
-      "Logo Design",
-      "Color Scheme",
-      "Typography"
-    ]
-  },
-  {
-    id: "hany-beauty",
-    title: "Hany Beauty",
-    category: "logo",
-    description: "A logo for a beauty salon that provides various services, showcasing versatility and professionalism.",
-    image: "/images/projects/hany-beauty.jpg",
-    technologies: ["Adobe Illustrator", "Photoshop"],
-    link: "#",
-    features: [
-      "Beauty Brand Identity",
-      "Logo Design",
-      "Color Palette",
-      "Typography"
-    ]
-  },
-  {
-    id: "yegna-dirsha",
-    title: "Yegna Dirsha",
-    category: "logo",
-    description: "A logo for a company that is worked for their youtube and social media channels.",
-    image: "/images/projects/yegna-dirsha.jpg",
-    technologies: ["Adobe Illustrator", "Photoshop"],
-    link: "#",
-    features: [
-      "Social Media Branding",
-      "Logo Design",
-      "Color Scheme",
-      "Typography"
-    ]
+    id: 6,
+    title: "Heiver Tech",
+    description: "A modern technology services platform with a focus on user experience and performance.",
+    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop",
+    link: "https://www.ikimtechco.com/",
   }
-] as const; 
+]; 

@@ -6,86 +6,7 @@ import { Text } from '@/components/ui/Text';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaLinkedinIn, FaTwitter, FaFacebookF, FaGithub } from 'react-icons/fa';
-
-const teamMembers = [
-  {
-    id: 1,
-    name: "Mikiyas Taye",
-    role: "CEO & Lead Developer",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop",
-    social: {
-      linkedin: "https://linkedin.com",
-      github: "https://github.com",
-      twitter: "https://twitter.com"
-    }
-  },
-  {
-    id: 2,
-    name: "Amen Dereje",
-    role: "Senior Web Developer",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
-    social: {
-      linkedin: "https://linkedin.com",
-      github: "https://github.com",
-      twitter: "https://twitter.com"
-    }
-  },
-  {
-    id: 3,
-    name: "Betselot Bezuayehu",
-    role: "Software Engineer",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
-    social: {
-      linkedin: "https://linkedin.com",
-      github: "https://github.com",
-      twitter: "https://twitter.com"
-    }
-  },
-  {
-    id: 4,
-    name: "Jecoliah Menberu",
-    role: "Business Development",
-    image: "https://images.unsplash.com/photo-1573497019940-1c19d654956?q=80&w=1974&auto=format&fit=crop",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      facebook: "https://facebook.com"
-    }
-  },
-  {
-    id: 5,
-    name: "Bisrat Kifle",
-    role: "Creative Director",
-    image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=1974&auto=format&fit=crop",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      facebook: "https://facebook.com"
-    }
-  },
-  {
-    id: 6,
-    name: "Tesfahun Gibitan",
-    role: "3D & VFX Artist",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      facebook: "https://facebook.com"
-    }
-  },
-  {
-    id: 7,
-    name: "Mikyas Seffi",
-    role: "Marketing Strategist",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      facebook: "https://facebook.com"
-    }
-  }
-];
+import { teamMembers } from '@/data/team';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -124,7 +45,7 @@ export default function TeamPage() {
               </Text>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto"
             >
@@ -153,65 +74,61 @@ export default function TeamPage() {
       </section>
 
       {/* Team Members Grid */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <Container>
           <motion.div
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           >
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.id}
                 variants={fadeInUp}
-                className="group relative bg-white rounded-xl overflow-hidden"
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-[0_2px_8px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
               >
-                <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  
-                  {/* Social Links */}
-                  <div className="absolute inset-0 flex items-center justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-white/90 h-auto w-10 flex flex-col items-center justify-center translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300">
-                      {Object.entries(member.social).map(([platform, url]) => {
-                        const IconComponent = {
-                          linkedin: FaLinkedinIn,
-                          twitter: FaTwitter,
-                          facebook: FaFacebookF,
-                          github: FaGithub
-                        }[platform as keyof typeof member.social];
-                        
-                        return (
-                          <motion.a
-                            key={platform}
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-full h-8 flex items-center justify-center text-[#033D54] hover:bg-[#033D54] hover:text-white transition-all duration-300"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                          >
-                            <IconComponent className="w-3.5 h-3.5" />
-                          </motion.a>
-                        );
-                      })}
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#033D54]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                
-                <div className="p-4 text-center">
-                  <Heading size="sm" className="text-[#033D54] mb-1">
+                <div className="p-6">
+                  <Heading size="lg" className="mb-2 text-[#033D54] group-hover:text-[#033D54]/90 transition-colors">
                     {member.name}
                   </Heading>
-                  <Text className="text-gray-600 text-sm">
+                  <Text className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
                     {member.role}
                   </Text>
+                  <div className="flex gap-4">
+                    {Object.entries(member.social).map(([platform, url]) => {
+                      const IconComponent = {
+                        linkedin: FaLinkedinIn,
+                        twitter: FaTwitter,
+                        facebook: FaFacebookF,
+                        github: FaGithub
+                      }[platform as keyof typeof member.social];
+                      
+                      return (
+                        <motion.a
+                          key={platform}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 rounded-full bg-[#033D54]/5 flex items-center justify-center text-[#033D54] hover:bg-[#033D54] hover:text-white transition-colors"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                        >
+                          <IconComponent className="w-4 h-4" />
+                        </motion.a>
+                      );
+                    })}
+                  </div>
                 </div>
               </motion.div>
             ))}

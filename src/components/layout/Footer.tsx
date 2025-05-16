@@ -13,14 +13,6 @@ const footerLinks = {
     { name: 'Our Projects', href: '/#projects' },
     { name: 'Contact Us', href: '/#contact' }
   ],
-  services: [
-    { name: 'Web Development', href: '/services#web' },
-    { name: 'Mobile Development', href: '/services#mobile' },
-    { name: 'UI/UX Design', href: '/services#design' },
-    { name: 'Graphics Design', href: '/services#graphics' },
-    { name: '3D Design', href: '/services#3d' },
-    { name: 'Video Editing', href: '/services#video' }
-  ],
   contact: [
     { icon: FaMapMarkerAlt, text: 'Jemo, Addis Ababa, Ethiopia', href: 'https://maps.google.com' },
     { icon: FaPhone, text: '+251 951 207 168', href: 'tel:+251951207168' },
@@ -78,11 +70,25 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <Text size="lg" className="font-bold mb-6 text-white">Our Services</Text>
-            <ul className="space-y-4">
-              {footerLinks.services.map((service, index) => (
-                <motion.li key={index} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-                  <Link href={service.href} className="text-white/70 hover:text-white transition-colors">
+            <Text className="text-white font-semibold mb-4">Our Services</Text>
+            <ul className="space-y-2">
+              {[
+                { name: "Web Development", href: "/services/web-development" },
+                { name: "Mobile Development", href: "/services/mobile-development" },
+                { name: "UI/UX Design", href: "/services/ui-ux-design" },
+                { name: "Web Hosting", href: "/services/web-hosting" },
+                { name: "Graphics Design", href: "/services/graphics-design" },
+                { name: "Printing", href: "/services/printing" }
+              ].map((service) => (
+                <motion.li 
+                  key={service.name}
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link
+                    href={service.href}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
                     {service.name}
                   </Link>
                 </motion.li>

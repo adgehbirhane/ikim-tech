@@ -5,25 +5,62 @@ import { Services } from '@/components/sections/Services';
 // import { Testimonials } from '@/components/sections/Testimonials';
 import { Contact } from '@/components/sections/Contact';
 import { Layout } from '@/components/layout/Layout';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 }
+};
 
 export default function HomePage() {
   return (
     <Layout>
-      <section id="home">
+      <motion.section
+        id="home"
+        variants={fadeInUp}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
         <Hero />
-      </section>
-      <section id="service">
+      </motion.section>
+      <motion.section
+        id="service"
+        variants={fadeInUp}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
         <Services />
-      </section>
-      <section id="projects">
+      </motion.section>
+      <motion.section
+        id="projects"
+        variants={fadeInUp}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
         <Projects />
-      </section>
-      <section id="choose_us">
+      </motion.section>
+      <motion.section
+        id="choose_us"
+        variants={fadeInUp}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
         <ChooseUs />
-      </section>
-      <section id="contact">
+      </motion.section>
+      <motion.section
+        id="contact"
+        variants={fadeInUp}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
         <Contact />
-      </section>
+      </motion.section>
     </Layout>
   );
 } 

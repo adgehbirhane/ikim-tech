@@ -5,7 +5,6 @@ import { Heading } from '@/components/ui/Heading';
 import { Text } from '@/components/ui/Text';
 import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
-import { fadeInUp } from '@/lib/animations';
 import { useState, useRef } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock, FaGlobe, FaBuilding, FaUser, FaPaperPlane, FaArrowRight } from 'react-icons/fa';
 import { BiArrowToRight } from 'react-icons/bi';
@@ -21,6 +20,12 @@ interface FormErrors {
   email?: string;
   message?: string;
 }
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 }
+};
 
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -109,13 +114,13 @@ export function Contact() {
     <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="initial"
+          whileInView="animate"
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           className="text-center mb-20"
         >
-          <motion.div>
+          <motion.div variants={fadeInUp}>
             <Heading size="2xl" className="mb-6 font-bold tracking-tight text-[#033D54] relative after:content-[''] after:absolute after:bottom-[-8px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-[3px] after:bg-[#033D54] after:rounded-full">
               Let's Work Together
             </Heading>
@@ -126,12 +131,15 @@ export function Contact() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="space-y-8">
+          <motion.div 
+            variants={fadeInUp}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
             <motion.div
               variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
               className="bg-white rounded-2xl p-8"
             >
               <Heading size="lg" className="mb-6 text-[#033D54]">Contact Information</Heading>
@@ -143,6 +151,7 @@ export function Contact() {
                     target={item.href.startsWith('http') ? '_blank' : undefined}
                     rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="block"
+                    variants={fadeInUp}
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -157,17 +166,17 @@ export function Contact() {
                 ))}
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
           <motion.div
             variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
             className="bg-white rounded-2xl p-8 shadow-[0_2px_8px_rgb(0,0,0,0.04)] transition-all duration-500"
           >
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              <div>
+              <motion.div variants={fadeInUp}>
                 <div className="relative">
                   <FaUser className="absolute left-4 top-1/2 -translate-y-1/2 text-[#033D54] w-5 h-5" />
                   <input
@@ -181,9 +190,9 @@ export function Contact() {
                   />
                 </div>
                 {errors.name && <p className="mt-1 text-red-500 text-sm">{errors.name}</p>}
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={fadeInUp}>
                 <div className="relative">
                   <FaEnvelope className="absolute left-4 top-1/2 -translate-y-1/2 text-[#033D54] w-5 h-5" />
                   <input
@@ -197,47 +206,57 @@ export function Contact() {
                   />
                 </div>
                 {errors.email && <p className="mt-1 text-red-500 text-sm">{errors.email}</p>}
-              </div>
+              </motion.div>
 
-              <div>
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={6}
-                  className="w-full bg-gray-50 border border-gray-200 text-gray-700 text-base rounded-lg focus:outline-none focus:ring-1 focus:ring-[#033D54] transition-all duration-200 p-4"
-                  required
-                />
+              <motion.div variants={fadeInUp}>
+                <div className="relative">
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full h-[150px] p-4 bg-gray-50 border border-gray-200 text-gray-700 text-base rounded-lg focus:outline-none focus:ring-1 focus:ring-[#033D54] transition-all duration-200 resize-none"
+                    required
+                  />
+                </div>
                 {errors.message && <p className="mt-1 text-red-500 text-sm">{errors.message}</p>}
-              </div>
+              </motion.div>
 
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full h-[50px] bg-[#033D54] text-white font-bold tracking-wide hover:bg-[#033D54]/90 transition-all duration-200 flex items-center justify-center gap-2 group"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </Button>
+              <motion.div variants={fadeInUp}>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full h-[50px] bg-[#033D54] text-white rounded-lg hover:bg-[#033D54]/90 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  {isSubmitting ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      Send Message
+                      <FaPaperPlane className="w-4 h-4" />
+                    </>
+                  )}
+                </Button>
+              </motion.div>
 
               {submitStatus === 'success' && (
-                <motion.div
+                <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="text-green-600 text-center"
                 >
-                  Message sent successfully!
-                </motion.div>
+                  Message sent successfully! We'll get back to you soon.
+                </motion.p>
               )}
 
               {submitStatus === 'error' && (
-                <motion.div
+                <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="text-red-600 text-center"
                 >
-                  Failed to send message. Please try again.
-                </motion.div>
+                  Please check the form for errors and try again.
+                </motion.p>
               )}
             </form>
           </motion.div>
