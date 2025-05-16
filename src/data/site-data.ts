@@ -2,6 +2,7 @@ export const siteData = {
   nav: {
     items: [
       { name: 'Home', href: '/' },
+      { name: 'Services', href: '/services' },
       { name: 'About', href: '/about' },
     ]
   },
