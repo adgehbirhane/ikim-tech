@@ -5,7 +5,7 @@ export const siteData = {
       { name: 'Services', href: '/#service' },
       { name: 'Projects', href: '/#projects' },
       { name: 'About', href: '/about' },
-      { name: 'Team', href: 'about/#team' },
+      // { name: 'Team', href: '/about/#team' },
     ]
   },
   hero: {
