@@ -9,6 +9,7 @@ import { SmoothLink } from '@/components/ui/SmoothLink';
 const footerLinks = {
   company: [
     { name: 'About Us', href: '/about' },
+    { name: 'Services', href: '/services' },
     { name: 'Contact Us', href: '/contact' }
   ],
   contact: [
