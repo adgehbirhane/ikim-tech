@@ -184,7 +184,7 @@ export function Navbar() {
                     transition={{ delay: 0.5 }}
                     className="mt-8"
                   >
-                    <SmoothLink href="/#contact" onClick={() => setIsMenuOpen(false)}>
+                    <SmoothLink href="/contact" onClick={() => setIsMenuOpen(false)}>
                       <Button className="w-full justify-center bg-[#033D54] hover:bg-[#033D54]/90 text-white">
                         <motion.div
                           initial={{ x: 0 }}
