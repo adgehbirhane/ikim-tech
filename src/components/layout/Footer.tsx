@@ -59,8 +59,11 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.company.map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-                  <SmoothLink href={link.href} className="text-white/70 hover:text-white transition-colors">
-                    {link.name}
+                  <SmoothLink href={link.href} className="group relative inline-block text-white/70 hover:text-white transition-colors">
+                    <span className="relative">
+                      {link.name}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </span>
                   </SmoothLink>
                 </motion.li>
               ))}
@@ -86,9 +89,12 @@ export function Footer() {
                 >
                   <SmoothLink
                     href={service.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="group relative inline-block text-gray-400 hover:text-white transition-colors"
                   >
-                    {service.name}
+                    <span className="relative">
+                      {service.name}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </span>
                   </SmoothLink>
                 </motion.li>
               ))}
@@ -105,10 +111,13 @@ export function Footer() {
                     href={contact.href}
                     target={contact.href.startsWith('http') ? '_blank' : undefined}
                     rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
+                    className="group relative inline-flex items-center gap-3 text-white/70 hover:text-white transition-colors"
                   >
                     <contact.icon className="w-5 h-5" />
-                    <span>{contact.text}</span>
+                    <span className="relative">
+                      {contact.text}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                    </span>
                   </a>
                 </motion.li>
               ))}

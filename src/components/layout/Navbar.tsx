@@ -81,9 +81,12 @@ export function Navbar() {
                 <SmoothLink
                   key={item.href}
                   href={item.href}
-                  className="text-base font-medium text-gray-700 hover:text-[#033D54] transition-colors"
+                  className="relative text-base font-medium text-gray-700 group"
                 >
-                  {item.name}
+                  <span className="relative">
+                    {item.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#033D54] transition-all duration-300 group-hover:w-full"></span>
+                  </span>
                 </SmoothLink>
               ))}
               <SmoothLink href="/contact">
@@ -169,10 +172,13 @@ export function Navbar() {
                       >
                         <SmoothLink
                           href={item.href}
-                          className="block text-lg font-medium text-gray-700 hover:text-[#033D54] transition-colors"
+                          className="group relative block text-lg font-medium text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition-all duration-300"
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          {item.name}
+                          <span className="relative">
+                            {item.name}
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#033D54] transition-all duration-300 group-hover:w-full"></span>
+                          </span>
                         </SmoothLink>
                       </motion.div>
                     ))}
