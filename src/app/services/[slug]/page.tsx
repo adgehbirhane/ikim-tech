@@ -230,7 +230,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             </Text>
             <div className="inline-block">
               <Link
-                href="/#contact"
+                href="/contact"
                 className="bg-white text-[#033D54] px-8 py-4 rounded-lg font-semibold border-2 border-[#033D54] inline-flex items-center gap-2 group"
               >
                 <motion.div

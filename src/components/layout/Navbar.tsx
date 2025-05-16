@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteData } from '@/data/site-data';
 import { FaTimes, FaBars, FaArrowRight } from 'react-icons/fa';
+import { SmoothLink } from '@/components/ui/SmoothLink';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,7 +64,7 @@ export function Navbar() {
         <Container>
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
+            <SmoothLink href="/" className="flex items-center space-x-2">
               <Image
                 src="/akim_logo.jpg"
                 alt="Akim Tech Logo"
@@ -73,20 +73,20 @@ export function Navbar() {
                 className="h-10 w-auto"
                 priority
               />
-            </Link>
+            </SmoothLink>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {siteData.nav.items.map((item) => (
-                <Link
+                <SmoothLink
                   key={item.href}
                   href={item.href}
                   className="text-base font-medium text-gray-700 hover:text-[#033D54] transition-colors"
                 >
                   {item.name}
-                </Link>
+                </SmoothLink>
               ))}
-              <Link href="/#contact">
+              <SmoothLink href="/contact">
                 <Button className="ml-4 bg-[#033D54] hover:bg-[#033D54]/90 text-white">
                   <motion.div
                     initial={{ x: 0 }}
@@ -98,7 +98,7 @@ export function Navbar() {
                     <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                   </motion.div>
                 </Button>
-              </Link>
+              </SmoothLink>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -139,7 +139,7 @@ export function Navbar() {
                 className="fixed top-0 left-0 h-screen w-[300px] bg-white shadow-2xl md:hidden z-50 border-r border-gray-200"
               >
                 <div className="flex h-20 items-center justify-between px-4 border-b border-gray-100">
-                  <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
+                  <SmoothLink href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
                     <Image
                       src="/akim_logo.jpg"
                       alt="Akim Tech Logo"
@@ -148,7 +148,7 @@ export function Navbar() {
                       className="h-8 w-auto"
                       priority
                     />
-                  </Link>
+                  </SmoothLink>
                   <button
                     className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-[#033D54] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#033D54]"
                     onClick={() => setIsMenuOpen(false)}
@@ -158,7 +158,7 @@ export function Navbar() {
                   </button>
                 </div>
 
-                <div className="px-4 py-6 bg-white h-[calc(100vh-5rem)] overflow-y-auto">
+                <div className="p-6">
                   <nav className="space-y-6">
                     {siteData.nav.items.map((item, index) => (
                       <motion.div
@@ -167,13 +167,13 @@ export function Navbar() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
                       >
-                        <Link
+                        <SmoothLink
                           href={item.href}
                           className="block text-lg font-medium text-gray-700 hover:text-[#033D54] transition-colors"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {item.name}
-                        </Link>
+                        </SmoothLink>
                       </motion.div>
                     ))}
                   </nav>
@@ -184,7 +184,7 @@ export function Navbar() {
                     transition={{ delay: 0.5 }}
                     className="mt-8"
                   >
-                    <Link href="/#contact">
+                    <SmoothLink href="/#contact" onClick={() => setIsMenuOpen(false)}>
                       <Button className="w-full justify-center bg-[#033D54] hover:bg-[#033D54]/90 text-white">
                         <motion.div
                           initial={{ x: 0 }}
@@ -196,7 +196,7 @@ export function Navbar() {
                           <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                         </motion.div>
                       </Button>
-                    </Link>
+                    </SmoothLink>
                   </motion.div>
                 </div>
               </motion.div>

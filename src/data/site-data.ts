@@ -1,11 +1,8 @@
 export const siteData = {
   nav: {
     items: [
-      { name: 'Home', href: '/#home' },
-      { name: 'Services', href: '/#service' },
-      { name: 'Projects', href: '/#projects' },
+      { name: 'Home', href: '/' },
       { name: 'About', href: '/about' },
-      // { name: 'Team', href: '/about/#team' },
     ]
   },
   hero: {

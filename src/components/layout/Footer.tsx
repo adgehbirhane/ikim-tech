@@ -3,15 +3,13 @@
 import { Container } from '@/components/ui/Container';
 import { Text } from '@/components/ui/Text';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { SmoothLink } from '@/components/ui/SmoothLink';
 
 const footerLinks = {
   company: [
     { name: 'About Us', href: '/about' },
-    { name: 'Our Services', href: '/#service' },
-    { name: 'Our Projects', href: '/#projects' },
-    { name: 'Contact Us', href: '/#contact' }
+    { name: 'Contact Us', href: '/contact' }
   ],
   contact: [
     { icon: FaMapMarkerAlt, text: 'Jemo, Addis Ababa, Ethiopia', href: 'https://maps.google.com' },
@@ -60,9 +58,9 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.company.map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-                  <Link href={link.href} className="text-white/70 hover:text-white transition-colors">
+                  <SmoothLink href={link.href} className="text-white/70 hover:text-white transition-colors">
                     {link.name}
-                  </Link>
+                  </SmoothLink>
                 </motion.li>
               ))}
             </ul>
@@ -85,12 +83,12 @@ export function Footer() {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <Link
+                  <SmoothLink
                     href={service.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {service.name}
-                  </Link>
+                  </SmoothLink>
                 </motion.li>
               ))}
             </ul>
